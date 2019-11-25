@@ -1,0 +1,10 @@
+---
+- hosts: test
+  tasks:
+    - name: Install nginx
+      yum: pkg=nginx state=latest
+      notify: 
+          - NGINX start   
+  handlers:
+    - name: NGINX start
+      service: name=nginx state=started
