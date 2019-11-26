@@ -1,23 +1,18 @@
 - hosts: test
+  vars_files:
+  - vars/main.yml
   sudo: yes
-  vars:
-  #   - mysql_root_password: "qwerty11"
-  #   - domain: "example.com"
-    - download_url: "http://wordpress.org/latest.tar.gz"
-  #   - wpdirectory: "/var/www"
-     #- wpdirectory: "/etc/nginx/conf.d/sites_available"
-    - wpdirectory: "/usr/share/nginx/html"
- #    - db_name: "wordpress"
- #    - db_user: "wordpress"
- #    - db_password: "wordpress"
+ # vars:
+ #  - mysql_root_password: "qwerty11"
+ #  - download_url: "http://wordpress.org/latest.tar.gz"
+ #  - wpdirectory: "/usr/share/nginx/html"
+  
 
   roles:
-  #- { role: nginx }
-  #- { role: mysql }
-  #- { role: php }
-  #- { role: geerlingguy.nginx }
-  #- { role: geerlingguy.apache }
-  #- { role: geerlingguy.mysql }
-  #- { role: geerlingguy.php } 
-  #- { role: geerlingguy.apache-php-fpm } 
-  - { role: wordpress}
+  - geerlingguy.nginx
+  - geerlingguy.mysql
+  - geerlingguy.repo-remi
+  - geerlingguy.repo-epel
+  - geerlingguy.php
+  - geerlingguy.php-mysql
+  - wordpress
