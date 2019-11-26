@@ -1,0 +1,4 @@
+- hosts: test
+  roles:
+    - geerlingguy.repo-epel
+    - geerlingguy.repo-remi

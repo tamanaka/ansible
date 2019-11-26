@@ -57,7 +57,22 @@ nginx_extra_http_options: ""
 #      proxy_set_header   Host $http_host;
 
 nginx_remove_default_vhost: false
-nginx_vhosts: []
+nginx_vhosts: 
+- listen: "80"
+  server_name: "192.168.1.10"
+  root: "/usr/share/nginx/html"
+  index: "index.php index.html index.htm"
+  error_page: "404 /404.html"
+  template: "{{ nginx_vhost_template }}"
+  filename: "example.com.conf"
+  extra_parameters: |
+    location ~ \.php$ {
+      fastcgi_pass unix:/var/run/php-fpm/php-fpm.sock;
+      fastcgi_index index.php;
+      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+      include fastcgi_params;
+    }
+
 # Example vhost below, showing all available options:
 # - listen: "80" # default: "80"
 #   server_name: "example.com" # default: N/A

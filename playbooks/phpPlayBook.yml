@@ -1,0 +1,8 @@
+- hosts: test
+  vars_files:
+    - vars/main.yml
+  roles:
+    - geerlingguy.repo-remi
+    - geerlingguy.repo-epel
+    - geerlingguy.php
+    - geerlingguy.php-mysql 
