@@ -1,9 +1,0 @@
-- hosts: test
- 
-  vars:
-
-    - php_enablerepo: "remi,epel"
-
-  roles:
-
-    - { role: geerlingguy.php-mysql }
