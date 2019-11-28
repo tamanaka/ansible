@@ -8,5 +8,9 @@ include={{ php_fpm_conf_path }}/pool.d/*.conf
 ; Global Options ;
 ;;;;;;;;;;;;;;;;;;
 
+listen.owner = nobody
+listen.group = nobody
+listen.mode = 0666
+
 [global]
 error_log = /var/log/php-fpm.log
