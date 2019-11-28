@@ -2,11 +2,7 @@
   vars_files:
   - vars/main.yml
   sudo: yes
- # vars:
- #  - mysql_root_password: "qwerty11"
- #  - download_url: "http://wordpress.org/latest.tar.gz"
- #  - wpdirectory: "/usr/share/nginx/html"
-  
+ 
 
   roles:
   - geerlingguy.nginx

@@ -2,7 +2,7 @@
 nginx_remove_default_vhost: false
 nginx_vhosts:
 - listen: "80"
-  server_name: "192.168.1.10"
+  server_name: "192.168.1.12"
   root: "/usr/share/nginx/html"
   index: "index.php index.html index.htm"
   error_page: "404 /404.html"
@@ -17,17 +17,24 @@ nginx_vhosts:
     }
 
 
-mysql_root_password: super-secure-password
-mysql_databases:
-  - name: wordpress
-    encoding: latin1
-    collation: latin1_general_ci
-mysql_users:
-  - name: username
-    host: "%"
-    password: password
-    priv: "wordpress.*:ALL"
-mysql_root_password: "qwerty11"
+wp_db_name: wordpress
+wp_db_user: username
+wp_db_password: password
+
+
+#mysql_databases:
+  #- name: "{{ wp_mysql_db }}"
+#  - name: wordpress
+#    encoding: latin1
+#    collation: latin1_general_ci
+#mysql_users:
+  #- name: "{{ wp_mysql_user }}"
+ # - name: username
+ #   host: "%"
+   # password: "{{ wp_mysql_password }}"
+ #   password: password
+ #   priv: "wordpress.*:ALL"
+
 
 download_url: "http://wordpress.org/latest.tar.gz"
  
@@ -41,9 +48,8 @@ php_webserver_daemon: "ngnix"
 php_enable_php_fpm: true
 php_enablerepo: "remi-php70,epel"
 php_fpm_listen: "/var/run/php-fpm/php-fpm.sock"
-php_fpm_listen.owner: "nobody"
-php_fpm_listen.group: "nobody"
 php_fpm_pool_user: "nginx"
 php_fpm_pool_group: "nginx"
 php_packages:
    - php-mysql
+   - php-fpm
