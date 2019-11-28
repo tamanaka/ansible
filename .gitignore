@@ -1,3 +1,5 @@
 file.key
 *.retry
 *.swp
+*.bak
+wordpressPlayBool.retry
