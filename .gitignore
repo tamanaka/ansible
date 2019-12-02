@@ -2,4 +2,6 @@ file.key
 *.retry
 *.swp
 *.bak
-wordpressPlayBool.retry
+wordpressPlayBook.retry
+id_rsa
+id_rsa.pub
