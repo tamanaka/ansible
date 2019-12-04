@@ -1,12 +1,8 @@
-
 nginx_remove_default_vhost: false
 nginx_vhosts:
 - listen: "80"
-<<<<<<< HEAD
-  server_name: "192.168.1.12"
-=======
-  server_name: "104.198.170.221"
->>>>>>> 43f5f15aa714bb66eaff4073ed356319cd8ed297
+ # server_name: "{{ hostvars['test'].ansible_host }}"
+  server_name: "{{ hostvars[groups['test'][0]].ansible_host }}"
   root: "/usr/share/nginx/html"
   index: "index.php index.html index.htm"
   error_page: "404 /404.html"
@@ -19,13 +15,6 @@ nginx_vhosts:
       fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
       include fastcgi_params;
     }
-
-
-<<<<<<< HEAD
-wp_db_name: wordpress
-wp_db_user: username
-wp_db_password: password
-=======
 wp_db_name: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           62653064303865353738336234363639303264666637646434336433663137313337326437643633
@@ -47,9 +36,6 @@ wp_db_password: !vault |
           31623738376162663561326665613066346339353632623863666535616139626438333161353439
           3633363238353338300a636231666137313337363237353864323137333030653138393834386166
           6132
->>>>>>> 43f5f15aa714bb66eaff4073ed356319cd8ed297
-
-
 
 download_url: "http://wordpress.org/latest.tar.gz"
  
@@ -59,11 +45,7 @@ wpdirectory: "/usr/share/nginx/html"
 php_memory_limit: "128M"
 php_max_execution_time: "90"
 php_upload_max_filesize: "256M"
-<<<<<<< HEAD
-php_webserver_daemon: "ngnix"
-=======
 php_webserver_daemon: "nginx"
->>>>>>> 43f5f15aa714bb66eaff4073ed356319cd8ed297
 php_enable_php_fpm: true
 php_enablerepo: "remi-php70,epel"
 php_fpm_listen: "/var/run/php-fpm/php-fpm.sock"

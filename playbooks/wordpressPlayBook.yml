@@ -2,9 +2,10 @@
   vars_files:
   - vars/main.yml
   sudo: yes
- 
+
 
   roles:
+  - python2-install
   - geerlingguy.nginx
   - geerlingguy.mysql
   - geerlingguy.repo-remi
