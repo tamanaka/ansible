@@ -1,4 +1,5 @@
 file.key
+*.key
 *.retry
 *.swp
 *.bak
